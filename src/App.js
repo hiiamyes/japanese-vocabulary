@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <div>{word?.chinese}</div>
-      {incorrect && <div>{`${word?.kanji}　${word?.kana}`}</div>}
+      {incorrect && <div>{`${word?.kanji} ${word?.kana}`}</div>}
       <input
         onCompositionStart={onSearchCompositionStart}
         onCompositionEnd={onSearchCompositionEnd}
