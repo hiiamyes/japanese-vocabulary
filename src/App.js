@@ -51,7 +51,10 @@ function App() {
         onKeyDown={(e) => {
           if (searchable) {
             if (e?.code === "Enter" || e?.keyCode === 13) {
-              if (e.target.value === word.kanji) {
+              if (
+                e.target.value === word.kanji ||
+                e.target.value === word.kana
+              ) {
                 setWord(words[random(0, words.length - 1)]);
                 setIncorrect(false);
                 e.target.value = "";
