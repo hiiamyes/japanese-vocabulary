@@ -29,9 +29,7 @@ function App() {
       });
       const words = records.map(({ fields }) => fields);
       setWords(words);
-      console.log(words);
       setWord(words[random(0, words.length - 1)]);
-      console.log(word);
       setIncorrect(false);
     })();
   }, []);
