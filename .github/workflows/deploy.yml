@@ -10,9 +10,14 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - run: |
+      - name: build
+        run: |
           yarn
           yarn build
+        env:
+          REACT_APP_AIRTABLE_TOKEN: ${{ secrets.REACT_APP_AIRTABLE_TOKEN }}
+      - name: deploy
+        run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
